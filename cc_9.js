@@ -33,7 +33,7 @@ constructor (name, id, department, salary, teamSize) {
     this.teamSize = teamSize;
 } // creating a class with Manager details
 getDetails() {
-    return `Employee: ${this.name}, ID: ${this.id}, Department: ${this.department}, Salary: ${this.salary}, Team Size ${this.teamSize}`;
+    return `Manager: ${this.name}, ID: ${this.id}, Department: ${this.department}, Salary: ${this.salary}, Team Size ${this.teamSize}`;
 } // overriding details to add team size
 
 calculateBonus() {
@@ -48,4 +48,26 @@ console.log(mgr1.getDetails());
 
 console.log("Bonus:", mgr1.calculateBonus()); 
 // logging the bonus calculation
+
+// Task 3: Creating a Company Class
+class Company {
+constructor(name) {
+    this.name = name
+    this.employees = []; //adding an array of employees
+}; 
+
+addEmployee(employee) {
+    this.employees.push(employee); //adds an employee
+}
+
+listEmployees() {
+    this.employees.forEach(employee => console.log(employee.getDetails()));
+} //lists employees
+}
+
+const company = new Company("TechCorp");
+
+company.addEmployee(emp1); // adds employee to array
+company.addEmployee(mgr1); 
+company.listEmployees(); //list employee details
 

@@ -73,6 +73,12 @@ calculateTotalPayroll(){
     return totalPayroll // TASK 4: added a method to calculate total payroll to the Company class
 
 }
+promoteToManager(employee, teamSize) {
+    const index = this.employees.indexOf(employee);
+    if (index !== -1) {
+    this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
+      }
+   }
 }
 
 const company = new Company("TechCorp");
@@ -84,4 +90,11 @@ company.listEmployees(); //list employee details
 // Task 4: Implementing a Payroll System
 
 console.log(`Total Payroll: $${company.calculateTotalPayroll()}`); 
-// logging the method from Company class. 
+// logging the method from Company class.
+
+// Task 5: Implementing Promotions
+
+
+company.promoteToManager(emp1, 3);
+console.log("Promotion:");
+company.listEmployees();

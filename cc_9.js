@@ -77,7 +77,7 @@ promoteToManager(employee, teamSize) {
     const index = this.employees.indexOf(employee);
     if (index !== -1) {
     this.employees[index] = new Manager(employee.name, employee.id, employee.department, employee.salary, teamSize);
-      }
+      } // adding a method to promote employees to a manager position
    }
 }
 
@@ -97,4 +97,5 @@ console.log(`Total Payroll: $${company.calculateTotalPayroll()}`);
 
 company.promoteToManager(emp1, 3);
 console.log("Promotion:");
-company.listEmployees();
+company.listEmployees(); 
+// logging the test data

@@ -37,6 +37,7 @@ getDetails() {
 } // overriding details to add team size
 
 calculateBonus() {
+    const annualSalary = this.salary * 12;
     return this.calculateAnnualSalary() * .10;
 } // creating a method that calculates 10% salary bonus
 }
@@ -54,7 +55,7 @@ class Company {
 constructor(name) {
     this.name = name
     this.employees = []; //adding an array of employees
-}; 
+};  
 
 addEmployee(employee) {
     this.employees.push(employee); //adds an employee
@@ -63,6 +64,15 @@ addEmployee(employee) {
 listEmployees() {
     this.employees.forEach(employee => console.log(employee.getDetails()));
 } //lists employees
+
+calculateTotalPayroll(){
+    let totalPayroll = 0;
+    this.employees.forEach(emp =>{
+        totalPayroll += emp.calculateAnnualSalary();
+    });
+    return totalPayroll // TASK 4: added a method to calculate total payroll to the Company class
+
+}
 }
 
 const company = new Company("TechCorp");
@@ -71,3 +81,7 @@ company.addEmployee(emp1); // adds employee to array
 company.addEmployee(mgr1); 
 company.listEmployees(); //list employee details
 
+// Task 4: Implementing a Payroll System
+
+console.log(`Total Payroll: $${company.calculateTotalPayroll()}`); 
+// logging the method from Company class. 
